@@ -1,9 +1,8 @@
 .form{
-  width: 500px;
-  padding: 30px;
   display: flex;
   flex-direction: column;
-  border: 1px solid gray
+  padding-bottom: 60px; 
+  padding-left: 30px;
 }
 
 .field{
@@ -11,4 +10,17 @@
   flex-direction: column;
   margin-bottom: 10px;
   font-weight: 600;
+}
+.btnForm{
+  width: 150px;
+  margin-left: 30px;
+  margin-top: 20px;
+  padding: 2px;
+  cursor: pointer;
+  border: 1px solid rgb(211, 204, 204);
+  border-radius: 5px;
+}
+
+.btnForm:hover {
+  background-color: rgb(128, 199, 199);
 }

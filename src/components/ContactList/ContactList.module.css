@@ -1,0 +1,19 @@
+.contactList{
+  margin-top: 15px;
+  margin-bottom: 60px;
+  margin-left: 20px;
+}
+.contactItem{
+  margin-bottom: 5px;
+}
+.btnList {
+  cursor: pointer;
+  margin-left: 15px;
+  background-color: transparent;
+  border: 1px solid rgb(211, 204, 204);
+  border-radius: 5px;
+}
+
+.btnList:hover{
+  background-color: rgb(128, 199, 199);
+}
