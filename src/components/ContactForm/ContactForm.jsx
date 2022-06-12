@@ -1,35 +1,38 @@
-import { Component } from 'react'
-import PropTypes from 'prop-types'
-import s from './ContactForm.module.css'
+import { Component } from 'react';
+import PropTypes from 'prop-types';
+import s from './ContactForm.module.css';
+
+const INITIAL_STATE = {
+  name: '',
+  number: '',
+};
 
 class ContactForm extends Component {
-  state = {
-    name: '',
-    number: ''
-  }
-  handleChange = (e) => {
-    const {name, value} = e.currentTarget
+  state = INITIAL_STATE;
+
+  handleChange = e => {
+    const { name, value } = e.currentTarget;
     this.setState({
-      [name]: value
-    })
-  }
+      [name]: value,
+    });
+  };
+
   handleSubmit = e => {
-    e.preventDefault()
-    this.props.onSubmit(this.state)
-    this.reset()
-  }
-  reset = () => {
-    this.setState({
-      name: '',
-      number: ''
-    })
-  }
+    e.preventDefault();
+    this.props.onSubmit(this.state);
+    this.resetFormState();
+  };
+
+  resetFormState = () => {
+    this.setState(INITIAL_STATE);
+  };
+
   render() {
-    const {name, number} = this.state;
+    const { name, number } = this.state;
+    
     return (
-    <>
-        <form className={s.form} autoComplete="off" onSubmit={this.handleSubmit}>
-          <label className={s.field} htmlFor="name">
+      <form className={s.form} autoComplete="off" onSubmit={this.handleSubmit}>
+        <label className={s.field}>
           Name
           <input
             type="text"
@@ -41,7 +44,8 @@ class ContactForm extends Component {
             required
           />
         </label>
-        <label className={s.field} htmlFor="number">
+
+        <label className={s.field}>
           Number
           <input
             type="tel"
@@ -53,16 +57,17 @@ class ContactForm extends Component {
             required
           />
         </label>
-          <button className={s.btnForm} type="submit">Add contact</button>
+
+        <button className={s.btnForm} type="submit">
+          Add contact
+        </button>
       </form>
-    
-    </>
-  )
+    );
   }
 }
 
 ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired
-}
+  onSubmit: PropTypes.func.isRequired,
+};
 
-export default  ContactForm
+export default ContactForm;
