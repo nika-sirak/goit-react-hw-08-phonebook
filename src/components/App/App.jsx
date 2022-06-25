@@ -9,7 +9,7 @@ const LS_KEY = 'contacts';
 
 function App() {
   const [contacts, setContacts] = useState(
-    JSON.parse(localStorage.getItem(LS_KEY))
+    JSON.parse(localStorage.getItem(LS_KEY)) ?? []
   );
   const [filtered, setFiltered] = useState('');
 
@@ -41,10 +41,10 @@ function App() {
 
   const getVisibleContacts = () => {
     const normalizedFilter = filtered.toLocaleLowerCase();
-    const filteredContacts = contacts.filter(({ name }) =>
+
+    return contacts.filter(({ name }) =>
       name.toLocaleLowerCase().includes(normalizedFilter)
     );
-    return filteredContacts;
   };
 
   const deleteContacts = contactId => {
