@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import s from './ContactList.module.css';
 
-function ContactList({ contacts, onDeleteContacts }) {
+function ContactList({ contactsArr, onDeleteContacts }) {
   return (
     <ul className={s.contactList}>
-      {contacts.map(({ id, name, number }) => (
+      {contactsArr.map(({ id, name, number }) => (
         <li key={id} className={s.contactItem}>
           <span>{name} : </span>
           <span>{number}</span>
@@ -22,7 +22,7 @@ function ContactList({ contacts, onDeleteContacts }) {
 }
 
 ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
+  contactsArr: PropTypes.arrayOf(
     PropTypes.exact({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,

@@ -61,7 +61,7 @@ function App() {
       <h2>Contacts</h2>
       <Filter value={filtered} onChangeFilter={changeFilter} />
       <ContactList
-        contacts={getVisibleContacts()}
+        contactsArr={getVisibleContacts()}
         onDeleteContacts={deleteContacts}
       />
     </div>
