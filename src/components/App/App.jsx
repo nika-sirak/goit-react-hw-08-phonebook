@@ -41,18 +41,15 @@ function App() {
 
   const getVisibleContacts = () => {
     const normalizedFilter = filtered.toLocaleLowerCase();
-
-    if (contacts !== []) {
-      return contacts.filter(({ name }) =>
-        name.toLocaleLowerCase().includes(normalizedFilter)
-      );
-    }
+    const filteredContacts = contacts.filter(({ name }) =>
+      name.toLocaleLowerCase().includes(normalizedFilter)
+    );
+    return filteredContacts;
   };
 
   const deleteContacts = contactId => {
     setContacts(contacts.filter(contact => contact.id !== contactId));
   };
-  const visibleContacts = getVisibleContacts();
 
   return (
     <div className={s.app}>
@@ -64,7 +61,7 @@ function App() {
       <h2>Contacts</h2>
       <Filter value={filtered} onChangeFilter={changeFilter} />
       <ContactList
-        contacts={visibleContacts}
+        contacts={getVisibleContacts()}
         onDeleteContacts={deleteContacts}
       />
     </div>
