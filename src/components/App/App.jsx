@@ -11,7 +11,7 @@ function App() {
   const [contacts, setContacts] = useState(
     JSON.parse(localStorage.getItem(LS_KEY))
   );
-  const [filter, setFilter] = useState('');
+  const [filtered, setFiltered] = useState('');
 
   useEffect(() => {
     window.localStorage.setItem(LS_KEY, JSON.stringify(contacts));
@@ -36,15 +36,17 @@ function App() {
   };
 
   const changeFilter = e => {
-    setFilter(e.currentTarget.value);
+    setFiltered(e.currentTarget.value);
   };
 
   const getVisibleContacts = () => {
-    const normalizedFilter = filter.toLocaleLowerCase();
+    const normalizedFilter = filtered.toLocaleLowerCase();
 
-    return contacts.filter(({ name }) =>
-      name.toLocaleLowerCase().includes(normalizedFilter)
-    );
+    if (contacts !== []) {
+      return contacts.filter(({ name }) =>
+        name.toLocaleLowerCase().includes(normalizedFilter)
+      );
+    }
   };
 
   const deleteContacts = contactId => {
@@ -60,7 +62,7 @@ function App() {
       </div>
 
       <h2>Contacts</h2>
-      <Filter value={filter} onChangeFilter={changeFilter} />
+      <Filter value={filtered} onChangeFilter={changeFilter} />
       <ContactList
         contacts={visibleContacts}
         onDeleteContacts={deleteContacts}
