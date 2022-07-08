@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import App from 'components/App/App.jsx';
 import { store, persistor } from './redux/store';
-import * as actions from './redux/contacts/contacts-action';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
