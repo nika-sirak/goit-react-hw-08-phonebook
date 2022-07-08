@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
-import { addContacts } from '../../redux/contacts/contacts-action';
+import { useContactForm } from '../../hooks/contactsHooks';
 import s from './ContactForm.module.css';
 
 const INITIAL_STATE = {
@@ -10,9 +8,8 @@ const INITIAL_STATE = {
 };
 
 function ContactForm() {
-  const contacts = useSelector(state => state.contacts.items);
   const [form, setForm] = useState(INITIAL_STATE);
-  const dispatch = useDispatch();
+  const { contacts, addContacts } = useContactForm();
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -30,7 +27,7 @@ function ContactForm() {
 
     contactInList
       ? alert(`${form.name} is already in your list`)
-      : dispatch(addContacts(form));
+      : addContacts(form);
 
     resetFormState();
   };
