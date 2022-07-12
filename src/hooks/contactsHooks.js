@@ -8,7 +8,7 @@ import {
   addContacts,
   deleteContacts,
   filterContacts,
-} from '../redux/contacts/contacts-action';
+} from '../redux/contacts/contacts-actions';
 
 export const useContactForm = () => {
   const contacts = useSelector(getItems);
