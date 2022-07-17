@@ -12,8 +12,6 @@ const INITIAL_STATE = {
 
 function ContactForm() {
   const contacts = useSelector(contactsSelectors.getItems);
-  const loading = useSelector(contactsSelectors.getLoader);
-  const error = useSelector(contactsSelectors.getError);
   const [form, setForm] = useState(INITIAL_STATE);
   const dispatch = useDispatch();
 
