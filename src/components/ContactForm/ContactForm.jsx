@@ -1,15 +1,21 @@
 import { useState } from 'react';
-import { useContactForm } from '../../hooks/contactsHooks';
+import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { contactsOperations, contactsSelectors } from 'redux/contacts';
+
 import s from './ContactForm.module.css';
 
 const INITIAL_STATE = {
   name: '',
-  number: '',
+  phone: '',
 };
 
 function ContactForm() {
+  const contacts = useSelector(contactsSelectors.getItems);
+  const loading = useSelector(contactsSelectors.getLoader);
+  const error = useSelector(contactsSelectors.getError);
   const [form, setForm] = useState(INITIAL_STATE);
-  const { contacts, addContacts } = useContactForm();
+  const dispatch = useDispatch();
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -21,55 +27,54 @@ function ContactForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
+
     const contactInList = contacts.find(({ name }) =>
       name.toLocaleLowerCase().includes(form.name.toLocaleLowerCase())
     );
 
     contactInList
-      ? alert(`${form.name} is already in your list`)
-      : addContacts(form);
+      ? toast.warning(`${form.name} is already in your list`)
+      : dispatch(contactsOperations.addContacts(form));
 
-    resetFormState();
-  };
-
-  const resetFormState = () => {
     setForm(INITIAL_STATE);
   };
 
-  const { name, number } = form;
+  const { name, phone } = form;
 
   return (
-    <form className={s.form} autoComplete="off" onSubmit={handleSubmit}>
-      <label className={s.field}>
-        Name
-        <input
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleChange}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-      </label>
+    <>
+      <form className={s.form} autoComplete="off" onSubmit={handleSubmit}>
+        <label className={s.field}>
+          Name
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleChange}
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+          />
+        </label>
 
-      <label className={s.field}>
-        Number
-        <input
-          type="tel"
-          name="number"
-          value={number}
-          onChange={handleChange}
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-      </label>
+        <label className={s.field}>
+          Number
+          <input
+            type="tel"
+            name="phone"
+            value={phone}
+            onChange={handleChange}
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+          />
+        </label>
 
-      <button className={s.btnForm} type="submit">
-        Add contact
-      </button>
-    </form>
+        <button className={s.btnForm} type="submit">
+          Add contact
+        </button>
+      </form>
+    </>
   );
 }
 

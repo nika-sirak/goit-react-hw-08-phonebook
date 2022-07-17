@@ -1,4 +1,4 @@
-import { useFilter } from '../../hooks/contactsHooks';
+import { useFilter } from 'hooks/contactsHooks';
 import s from './Filter.module.css';
 
 function Filter() {

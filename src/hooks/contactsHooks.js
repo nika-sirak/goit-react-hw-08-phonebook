@@ -1,36 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  getItems,
-  getFilter,
-  getVisibleContacts,
-} from '../redux/contacts/contacts-selectors';
-import {
-  addContacts,
-  deleteContacts,
-  filterContacts,
-} from '../redux/contacts/contacts-actions';
-
-export const useContactForm = () => {
-  const contacts = useSelector(getItems);
-  const dispatch = useDispatch();
-  const onAddContacts = cont => dispatch(addContacts(cont));
-
-  return {
-    contacts,
-    addContacts: onAddContacts,
-  };
-};
-
-export const useContactList = () => {
-  const visibleContacts = useSelector(getVisibleContacts);
-  const dispatch = useDispatch();
-  const onDeleteContacts = id => dispatch(deleteContacts(id));
-
-  return {
-    visibleContacts,
-    deleteContacts: onDeleteContacts,
-  };
-};
+import { getFilter } from 'redux/contacts/contacts-selectors';
+import { filterContacts } from 'redux/contacts/contacts-actions';
 
 export const useFilter = () => {
   const value = useSelector(getFilter);
