@@ -1,26 +1,24 @@
-import { ToastContainer, Flip } from 'react-toastify';
-import ContactForm from 'components/ContactForm/ContactForm';
-import ContactList from 'components/ContactList/ContactList';
-import Filter from 'components/Filter/Filter';
-import 'react-toastify/dist/ReactToastify.css';
-import s from './App.module.css';
+import { Routes, Route } from 'react-router-dom';
+import AppBar from 'components/AppBar/AppBar';
+import HomePage from 'pages/HomePage/HomePage';
+import LoginPage from 'pages/LoginPage/LoginPage';
+import RegisterPage from 'pages/RegisterPage/RegisterPage';
+import ContactsPage from 'pages/ContactsPage/ContactsPage';
+import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 
 function App() {
   return (
-    <div className={s.app}>
-      <div className={s.container}>
-        <ToastContainer
-          position="top-center"
-          autoClose={2000}
-          transition={Flip}
-        />
-        <h1 className={s.title}>Phonebook </h1>
-        <ContactForm />
-      </div>
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<AppBar />}>
+          <Route index element={<HomePage />} />
+          <Route path="contacts" element={<ContactsPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 
