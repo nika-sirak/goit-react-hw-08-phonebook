@@ -5,7 +5,7 @@ import * as authSelectors from 'redux/auth/auth-selectors';
 function PublicRoute({ children }) {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
-  return isLoggedIn ? <Navigate to="/contacts" replace /> : children;
+  return isLoggedIn ? <Navigate to="/" replace /> : children;
 }
 
 export default PublicRoute;
