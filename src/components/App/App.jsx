@@ -1,4 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import * as authOperations from 'redux/auth/auth-operations';
 import AppBar from 'components/AppBar/AppBar';
 import HomePage from 'pages/HomePage/HomePage';
 import LoginPage from 'pages/LoginPage/LoginPage';
@@ -7,6 +10,12 @@ import ContactsPage from 'pages/ContactsPage/ContactsPage';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <>
       <Routes>
