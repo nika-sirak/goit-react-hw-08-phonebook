@@ -1,0 +1,18 @@
+.authNavContainer {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+.navLink,
+.activeLink {
+  text-decoration: none;
+  display: inline-block;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #fff;
+}
+.activeLink,
+.navLink:hover {
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px #fff;
+}

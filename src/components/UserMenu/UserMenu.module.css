@@ -1,0 +1,28 @@
+.userMenuContainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: auto;
+}
+.userName {
+  color: #ffffff;
+}
+
+.userLogOutBtn {
+  box-sizing: border-box;
+  width: 110px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+
+  font-size: 12px;
+  line-height: 1em;
+
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  background-color: transparent;
+  border-radius: 8px;
+}
