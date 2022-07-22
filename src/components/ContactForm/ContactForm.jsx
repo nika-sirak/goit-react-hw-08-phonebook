@@ -7,7 +7,7 @@ import s from './ContactForm.module.css';
 
 const INITIAL_STATE = {
   name: '',
-  phone: '',
+  number: '',
 };
 
 function ContactForm() {
@@ -37,7 +37,7 @@ function ContactForm() {
     setForm(INITIAL_STATE);
   };
 
-  const { name, phone } = form;
+  const { name, number } = form;
 
   return (
     <form className={s.form} autoComplete="off" onSubmit={handleSubmit}>
@@ -58,8 +58,8 @@ function ContactForm() {
         Number
         <input
           type="tel"
-          name="phone"
-          value={phone}
+          name="number"
+          value={number}
           onChange={handleChange}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
