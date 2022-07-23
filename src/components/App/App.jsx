@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,11 +7,14 @@ import * as authSelectors from 'redux/auth/auth-selectors';
 import PrivateRoute from 'components/PrivateRoute';
 import PublicRoute from 'components/PublicRoute';
 import AppBar from 'components/AppBar/AppBar';
-import HomePage from 'pages/HomePage/HomePage';
-import LoginPage from 'pages/LoginPage/LoginPage';
-import RegisterPage from 'pages/RegisterPage/RegisterPage';
-import ContactsPage from 'pages/ContactsPage/ContactsPage';
-import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
+
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
+const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
+const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));
+const NotFoundPage = lazy(() => {
+  import('pages/NotFoundPage/NotFoundPage');
+});
 
 function App() {
   const dispatch = useDispatch();

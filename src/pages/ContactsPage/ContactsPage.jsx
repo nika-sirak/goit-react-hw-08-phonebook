@@ -9,11 +9,7 @@ function ContactsPage() {
   return (
     <section className={s.phonebookSection}>
       <div className={s.formContainer}>
-        <ToastContainer
-          position="top-center"
-          autoClose={2000}
-          transition={Flip}
-        />
+        <ToastContainer autoClose={2000} transition={Flip} />
         <h1 className={s.title}>Phonebook </h1>
         <ContactForm />
       </div>

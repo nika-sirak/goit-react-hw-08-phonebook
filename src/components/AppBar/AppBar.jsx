@@ -1,6 +1,8 @@
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import * as authSelectors from 'redux/auth/auth-selectors';
+import Loader from 'components/Loader/Loader';
 import Navigation from 'components/Navigation/Navigation';
 import AuthNav from 'components/AuthNav/AuthNav';
 import UserMenu from 'components/UserMenu/UserMenu';
@@ -16,9 +18,9 @@ function AppBar() {
         </nav>
       </header>
       <main>
-        {/* <Suspense fallback={<Loader />}> */}
-        <Outlet />
-        {/* </Suspense> */}
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
       </main>
     </>
   );
