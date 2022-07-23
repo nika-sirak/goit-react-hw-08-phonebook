@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { contactsOperations, contactsSelectors } from 'redux/contacts';
+import Loader from 'components/Loader/Loader';
 import s from './ContactList.module.css';
 
 function ContactList() {
@@ -18,7 +19,7 @@ function ContactList() {
 
   return (
     <>
-      {loading && <p>Loading...</p>}
+      {loading && <Loader />}
       {error && <p>{error.message}</p>}
       {visibleContacts.length > 0 && (
         <ul className={s.contactList}>

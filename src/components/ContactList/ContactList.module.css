@@ -1,9 +1,9 @@
-.contactList{
+.contactList {
   margin-top: 15px;
   margin-bottom: 60px;
   margin-left: 20px;
 }
-.contactItem{
+.contactItem {
   margin-bottom: 5px;
 }
 .btnList {
@@ -14,6 +14,7 @@
   border-radius: 5px;
 }
 
-.btnList:hover{
-  background-color: rgb(128, 199, 199);
+.btnList:hover {
+  background-color: #2f65a0;
+  color: #ffffff;
 }
