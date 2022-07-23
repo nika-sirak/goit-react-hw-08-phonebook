@@ -22,10 +22,10 @@ function ContactList() {
       {error && <p>{error.message}</p>}
       {visibleContacts.length > 0 && (
         <ul className={s.contactList}>
-          {visibleContacts.map(({ id, name, phone }) => (
+          {visibleContacts.map(({ id, name, number }) => (
             <li key={id} className={s.contactItem}>
               <span>{name} : </span>
-              <span>{phone}</span>
+              <span>{number}</span>
               <button
                 className={s.btnList}
                 type="button"

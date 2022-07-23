@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import {
+  MdOutlinePersonOutline,
+  MdAlternateEmail,
+  MdPassword,
+} from 'react-icons/md';
 import * as authOperations from 'redux/auth/auth-operations';
+import s from './RegisterPage.module.css';
 
 function RegisterPage() {
   const dispatch = useDispatch();
@@ -30,34 +36,56 @@ function RegisterPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name
-        <input type="name" name="name" value={name} onChange={handleChange} />
-      </label>
+    <section className={s.loginSection}>
+      <h2 className={s.title}>Not a customer yet? Join now!</h2>
+      <form className={s.form} onSubmit={handleSubmit} autoComplete="off">
+        <label className={s.field}>
+          <span className={s.label}>Name</span>
+          <span className={s.inputWrapper}>
+            <input
+              className={s.input}
+              type="name"
+              name="name"
+              value={name}
+              onChange={handleChange}
+            />
+            <MdOutlinePersonOutline className={s.formIcon} />
+          </span>
+        </label>
 
-      <label>
-        Email
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-        />
-      </label>
+        <label className={s.field}>
+          <span className={s.label}>Email</span>
+          <span className={s.inputWrapper}>
+            <input
+              className={s.input}
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+            />
+            <MdAlternateEmail className={s.formIcon} />
+          </span>
+        </label>
 
-      <label>
-        Password
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-        />
-      </label>
+        <label className={s.field}>
+          <span className={s.label}>Password</span>
+          <span className={s.inputWrapper}>
+            <input
+              className={s.input}
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+            />
+            <MdPassword className={s.formIcon} />
+          </span>
+        </label>
 
-      <button type="submit">Sign in</button>
-    </form>
+        <button className={s.btnForm} type="submit">
+          Sign in
+        </button>
+      </form>
+    </section>
   );
 }
 

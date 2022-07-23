@@ -1,0 +1,12 @@
+.homePageSection {
+  min-height: 85vh;
+  background-color: aliceblue;
+  background-image: url('../../images/contact-phonebook.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.title {
+  padding-top: 220px;
+  text-align: center;
+  color: #2f65a0;
+}

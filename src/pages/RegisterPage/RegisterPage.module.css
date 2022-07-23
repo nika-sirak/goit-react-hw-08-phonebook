@@ -1,5 +1,17 @@
+.loginSection {
+  margin-top: 30px;
+}
+.title {
+  text-align: center;
+  padding-top: 30px;
+  margin-left: 65px;
+  margin-bottom: 20px;
+
+  color: #2f65a0;
+}
 .form {
   display: flex;
+  align-items: center;
   flex-direction: column;
   padding-bottom: 60px;
   padding-left: 30px;
@@ -66,7 +78,7 @@
   padding-top: 8px;
   padding-bottom: 8px;
   margin-top: 10px;
-  margin-left: 45px;
+  margin-left: 10px;
   cursor: pointer;
 
   color: #ffffff;

@@ -21,7 +21,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    isFetchingCurrentUser && (
+    !isFetchingCurrentUser && (
       <>
         <Routes>
           <Route path="/" element={<AppBar />}>
