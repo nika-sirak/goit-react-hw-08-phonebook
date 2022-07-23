@@ -33,7 +33,6 @@ export const logIn = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      console.log(error);
       rejectWithValue(error);
     }
   }
@@ -62,7 +61,6 @@ export const fetchCurrentUser = createAsyncThunk(
     token.set(persistedToken);
     try {
       const { data } = await axios.get('/users/current');
-      console.log(data);
       return data;
     } catch (error) {
       thunkAPI.rejectWithValue(error);

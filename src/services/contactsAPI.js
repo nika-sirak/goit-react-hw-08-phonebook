@@ -20,8 +20,8 @@ export const addContacts = async contact => {
 
 export const deleteContacts = async id => {
   try {
-    const { data } = await axios.delete(`/contacts/${id}`);
-    return data;
+    await axios.delete(`/contacts/${id}`);
+    return id;
   } catch (error) {
     throw error;
   }

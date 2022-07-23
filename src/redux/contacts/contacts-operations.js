@@ -15,7 +15,7 @@ export const fetchContacts = createAsyncThunk(
 );
 
 export const addContacts = createAsyncThunk(
-  'contacts/addContacts',
+  'contacts/addContact',
   async (contact, { rejectWithValue }) => {
     try {
       const phonebook = await API.addContacts(contact);
@@ -28,12 +28,12 @@ export const addContacts = createAsyncThunk(
 );
 
 export const deleteContacts = createAsyncThunk(
-  'contacts/deleteContacts',
+  'contacts/deleteContact',
   async (id, { rejectWithValue }) => {
     try {
-      const contact = await API.deleteContacts(id);
+      const contacts = await API.deleteContacts(id);
       toast.success('Deleted Successfully');
-      return contact.id;
+      return contacts;
     } catch (error) {
       return rejectWithValue(error);
     }
