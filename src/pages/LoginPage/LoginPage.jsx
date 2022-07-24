@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { MdAlternateEmail, MdPassword } from 'react-icons/md';
-import * as authOperations from 'redux/auth/auth-operations';
+import { authOperations } from 'redux/auth';
 import s from './LoginPage.module.css';
 
 function LoginPage() {

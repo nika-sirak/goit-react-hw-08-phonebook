@@ -5,7 +5,7 @@ import {
   MdAlternateEmail,
   MdPassword,
 } from 'react-icons/md';
-import * as authOperations from 'redux/auth/auth-operations';
+import { authOperations } from 'redux/auth';
 import s from './RegisterPage.module.css';
 
 function RegisterPage() {

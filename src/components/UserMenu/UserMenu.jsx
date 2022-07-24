@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import * as authSelectors from 'redux/auth/auth-selectors';
-import * as authOperations from 'redux/auth/auth-operations';
+import { authSelectors, authOperations } from 'redux/auth';
 import s from './UserMenu.module.css';
 
 function UserMenu() {

@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import { useSelector } from 'react-redux';
-import * as authSelectors from 'redux/auth/auth-selectors';
+import { authSelectors } from 'redux/auth';
 import Loader from 'components/Loader/Loader';
 import Navigation from 'components/Navigation/Navigation';
 import AuthNav from 'components/AuthNav/AuthNav';
