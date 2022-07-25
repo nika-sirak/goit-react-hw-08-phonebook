@@ -17,7 +17,6 @@ const NotFoundPage = lazy(() => {
 
 function App() {
   const dispatch = useDispatch();
-  // const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
