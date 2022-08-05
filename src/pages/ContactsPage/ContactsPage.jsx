@@ -10,7 +10,7 @@ function ContactsPage() {
     <section className={s.phonebookSection}>
       <div className={s.formContainer}>
         <ToastContainer autoClose={2000} transition={Flip} />
-        <h1 className={s.title}>Phonebook </h1>
+        <h2 className={s.title}>Phonebook </h2>
         <ContactForm />
       </div>
       <div className={s.contactsContainer}>
